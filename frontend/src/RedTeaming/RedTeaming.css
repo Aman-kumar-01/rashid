@@ -244,3 +244,849 @@
 
   animation: none !important;
 }
+
+
+/* =========================================================
+   KHAN SPLOIT - RED TEAMING PAGE
+   FULL RESPONSIVE
+   Desktop / Laptop / Tablet / Mobile
+   ========================================================= */
+
+.redteaming-page {
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+
+  background: #07040f;
+  color: #e9d5ff;
+}
+
+.redteaming-page *,
+.redteaming-page *::before,
+.redteaming-page *::after {
+  box-sizing: border-box;
+}
+
+.redteaming-page img {
+  max-width: 100%;
+}
+
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.redteaming-page .bb-hero {
+  width: 100%;
+  max-width: 1300px;
+
+  margin: 0 auto;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    minmax(250px, 400px);
+
+  align-items: center;
+
+  gap: clamp(30px, 7vw, 100px);
+
+  padding:
+    clamp(50px, 8vw, 90px)
+    clamp(18px, 5vw, 55px);
+}
+
+
+/* =========================================================
+   HERO LEFT
+   ========================================================= */
+
+.redteaming-page .bb-hero-left {
+  width: 100%;
+  max-width: 650px;
+
+  min-width: 0;
+}
+
+
+/* =========================================================
+   HERO RIGHT
+   ========================================================= */
+
+.redteaming-page .bb-hero-right {
+  width: 100%;
+
+  min-width: 0;
+
+  display: flex !important;
+
+  justify-content: center !important;
+  align-items: center !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+
+  background: transparent !important;
+
+  border: none !important;
+  box-shadow: none !important;
+}
+
+
+/* =========================================================
+   BADGE
+   ========================================================= */
+
+.redteaming-page .bb-badge {
+  display: inline-block;
+
+  width: fit-content;
+  max-width: 100%;
+
+  padding: 8px 18px;
+
+  margin-bottom: 18px;
+
+  font-size: clamp(
+    0.65rem,
+    1.2vw,
+    0.85rem
+  );
+
+  line-height: 1.4;
+
+  letter-spacing: clamp(
+    1px,
+    0.25vw,
+    1.8px
+  );
+
+  text-align: center;
+
+  overflow-wrap: anywhere;
+}
+
+
+/* =========================================================
+   TITLE
+   ========================================================= */
+
+.redteaming-page .bb-title {
+  width: 100%;
+
+  margin: 0 0 18px;
+
+  font-size: clamp(
+    2.2rem,
+    5.5vw,
+    3.6rem
+  );
+
+  font-weight: 800;
+
+  line-height: 1.08;
+
+  overflow-wrap: anywhere;
+}
+
+
+/* =========================================================
+   GRADIENT TEXT
+   ========================================================= */
+
+.redteaming-page .gradient-text {
+  background:
+    linear-gradient(
+      90deg,
+      #c084fc,
+      #a855f7,
+      #7c3aed
+    );
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  background-clip: text;
+}
+
+
+/* =========================================================
+   SUBTITLE
+   ========================================================= */
+
+.redteaming-page .bb-subtitle {
+  width: 100%;
+
+  max-width: 700px;
+
+  margin: 0 0 18px;
+
+  font-size: clamp(
+    0.85rem,
+    1.5vw,
+    1.15rem
+  );
+
+  line-height: 1.7;
+}
+
+
+/* =========================================================
+   DESCRIPTION
+   ========================================================= */
+
+.redteaming-page .bb-desc {
+  width: 100%;
+
+  max-width: 550px;
+
+  margin: 0;
+
+  font-size: clamp(
+    0.82rem,
+    1.3vw,
+    1.05rem
+  );
+
+  line-height: 1.7;
+
+  overflow-wrap: anywhere;
+}
+
+
+/* =========================================================
+   HERO IMAGE WRAPPER
+   ========================================================= */
+
+.redteaming-page .bb-profile-wrapper {
+  width: 100% !important;
+  height: auto !important;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 0 !important;
+  margin: 0 !important;
+
+  background: transparent !important;
+
+  border: none !important;
+  border-radius: 0 !important;
+
+  box-shadow: none !important;
+}
+
+
+/* =========================================================
+   HERO IMAGE
+   ========================================================= */
+
+.redteaming-page .bb-profile-img {
+  width: min(
+    320px,
+    30vw
+  ) !important;
+
+  height: auto !important;
+
+  max-width: 320px;
+
+  aspect-ratio: 1 / 1;
+
+  object-fit: contain !important;
+
+  display: block !important;
+
+  margin: 0 auto !important;
+  padding: 0 !important;
+
+  background: transparent !important;
+
+  border: none !important;
+  border-radius: 0 !important;
+
+  box-shadow: none !important;
+
+  filter: none !important;
+
+  animation: none !important;
+}
+
+
+/* =========================================================
+   SECTION
+   ========================================================= */
+
+.redteaming-page .bb-section {
+  width: 100%;
+
+  max-width: 1300px;
+
+  margin: 0 auto;
+
+  padding:
+    clamp(45px, 7vw, 80px)
+    clamp(15px, 4vw, 40px);
+}
+
+
+/* =========================================================
+   SECTION HEADER
+   ========================================================= */
+
+.redteaming-page .section-header {
+  width: 100%;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+
+  margin-bottom:
+    clamp(25px, 4vw, 45px);
+}
+
+
+/* =========================================================
+   SECTION TITLE
+   ========================================================= */
+
+.redteaming-page .section-title {
+  max-width: 100%;
+
+  margin: 0;
+
+  font-size: clamp(
+    1.4rem,
+    4vw,
+    1.9rem
+  );
+
+  line-height: 1.25;
+
+  letter-spacing:
+    clamp(
+      0.5px,
+      0.15vw,
+      2px
+    );
+
+  overflow-wrap: anywhere;
+}
+
+.redteaming-page .section-title::after {
+  content: "";
+
+  display: block;
+
+  width: 70px;
+  height: 3px;
+
+  margin: 0.7rem auto 0;
+
+  border-radius: 50px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #7c3aed,
+      #a855f7
+    );
+}
+
+
+/* =========================================================
+   COURSES GRID
+   ========================================================= */
+
+.redteaming-page .courses-grid {
+  width: 100%;
+
+  max-width: 1200px;
+
+  margin: 0 auto;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      auto-fit,
+      minmax(
+        min(300px, 100%),
+        1fr
+      )
+    );
+
+  gap:
+    clamp(
+      15px,
+      2.5vw,
+      28px
+    );
+}
+
+
+/* =========================================================
+   COURSE CARD
+   ========================================================= */
+
+.redteaming-page .course-card {
+  width: 100%;
+
+  min-width: 0;
+
+  display: flex;
+
+  flex-direction: column;
+
+  overflow: hidden;
+
+  background:
+    rgba(18, 10, 35, 0.85);
+
+  border:
+    1px solid
+    rgba(168, 85, 247, 0.2);
+
+  border-radius: 16px;
+
+  text-decoration: none;
+
+  color: inherit;
+
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+
+.redteaming-page .course-card:hover {
+  transform: translateY(-8px);
+
+  border-color:
+    rgba(168, 85, 247, 0.55);
+
+  box-shadow:
+    0 15px 35px
+    rgba(124, 58, 237, 0.3);
+}
+
+
+/* =========================================================
+   COURSE IMAGE
+   ========================================================= */
+
+.redteaming-page .course-image {
+  position: relative;
+
+  width: 100%;
+
+  height: auto;
+
+  aspect-ratio: 16 / 9;
+
+  overflow: hidden;
+}
+
+
+.redteaming-page .course-image img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+
+  transition:
+    transform 0.4s ease;
+}
+
+
+.redteaming-page .course-card:hover
+.course-image img {
+  transform: scale(1.06);
+}
+
+
+/* =========================================================
+   COURSE LEVEL
+   ========================================================= */
+
+.redteaming-page .course-level {
+  position: absolute;
+
+  top: 12px;
+  left: 12px;
+
+  max-width:
+    calc(100% - 24px);
+
+  padding:
+    5px 10px;
+
+  border-radius: 50px;
+
+  background:
+    rgba(124, 58, 237, 0.9);
+
+  color: white;
+
+  font-size: clamp(
+    0.6rem,
+    1vw,
+    0.72rem
+  );
+
+  font-weight: 500;
+
+  white-space: nowrap;
+
+  overflow: hidden;
+
+  text-overflow: ellipsis;
+}
+
+
+/* =========================================================
+   COURSE CONTENT
+   ========================================================= */
+
+.redteaming-page .course-content {
+  width: 100%;
+
+  min-width: 0;
+
+  padding:
+    clamp(
+      16px,
+      2vw,
+      24px
+    );
+
+  flex: 1;
+
+  display: flex;
+
+  flex-direction: column;
+}
+
+
+.redteaming-page .course-content h3 {
+  width: 100%;
+
+  margin: 0 0 10px;
+
+  color: #f3e8ff;
+
+  font-size: clamp(
+    0.95rem,
+    1.5vw,
+    1.15rem
+  );
+
+  line-height: 1.4;
+
+  overflow-wrap: anywhere;
+}
+
+
+.redteaming-page .course-content p {
+  width: 100%;
+
+  margin: 0 0 16px;
+
+  color: #a78bfa;
+
+  font-size: clamp(
+    0.78rem,
+    1.2vw,
+    0.9rem
+  );
+
+  line-height: 1.6;
+
+  flex: 1;
+
+  overflow-wrap: anywhere;
+}
+
+
+.redteaming-page .read-more {
+  display: inline-block;
+
+  color: #c084fc;
+
+  font-size: clamp(
+    0.78rem,
+    1.2vw,
+    0.9rem
+  );
+
+  font-weight: 600;
+
+  white-space: nowrap;
+}
+
+
+/* =========================================================
+   1200px - LARGE LAPTOP
+   ========================================================= */
+
+@media (max-width: 1200px) {
+
+  .redteaming-page .bb-hero {
+    grid-template-columns:
+      minmax(0, 1fr)
+      minmax(220px, 330px);
+
+    gap: 50px;
+  }
+
+  .redteaming-page .bb-profile-img {
+    width: min(
+      280px,
+      30vw
+    ) !important;
+
+    max-width: 280px;
+  }
+
+  .redteaming-page .courses-grid {
+    grid-template-columns:
+      repeat(
+        3,
+        minmax(0, 1fr)
+      );
+  }
+}
+
+
+/* =========================================================
+   900px - TABLET
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+  .redteaming-page .bb-hero {
+    grid-template-columns: 1fr;
+
+    text-align: center;
+
+    gap: 40px;
+
+    padding:
+      60px 25px;
+  }
+
+
+  .redteaming-page .bb-hero-left {
+    max-width: 750px;
+
+    margin: 0 auto;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+  }
+
+
+  .redteaming-page .bb-subtitle,
+  .redteaming-page .bb-desc {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+
+  .redteaming-page .bb-profile-img {
+    width: 280px !important;
+
+    max-width: 280px;
+  }
+
+
+  .redteaming-page .courses-grid {
+    grid-template-columns:
+      repeat(
+        2,
+        minmax(0, 1fr)
+      );
+  }
+}
+
+
+/* =========================================================
+   600px - MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+  .redteaming-page .bb-hero {
+    padding:
+      45px 16px;
+
+    gap: 30px;
+  }
+
+
+  .redteaming-page .bb-badge {
+    font-size: 0.62rem;
+
+    letter-spacing: 1px;
+
+    padding:
+      7px 12px;
+  }
+
+
+  .redteaming-page .bb-title {
+    font-size:
+      clamp(
+        1.8rem,
+        9vw,
+        2.6rem
+      );
+  }
+
+
+  .redteaming-page .bb-subtitle {
+    font-size: 0.82rem;
+
+    line-height: 1.65;
+  }
+
+
+  .redteaming-page .bb-desc {
+    font-size: 0.8rem;
+
+    line-height: 1.65;
+  }
+
+
+  .redteaming-page .bb-profile-img {
+    width: 230px !important;
+
+    max-width: 230px;
+  }
+
+
+  .redteaming-page .bb-section {
+    padding:
+      40px 12px;
+  }
+
+
+  .redteaming-page .section-title {
+    font-size: 1.35rem;
+
+    letter-spacing: 1px;
+  }
+
+
+  .redteaming-page .courses-grid {
+    grid-template-columns: 1fr;
+
+    gap: 16px;
+  }
+
+
+  .redteaming-page .course-content {
+    padding:
+      18px 16px 20px;
+  }
+
+
+  .redteaming-page .course-content h3 {
+    font-size: 1rem;
+  }
+
+
+  .redteaming-page .course-content p {
+    font-size: 0.8rem;
+  }
+}
+
+
+/* =========================================================
+   400px - SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 400px) {
+
+  .redteaming-page .bb-hero {
+    padding:
+      35px 10px;
+  }
+
+
+  .redteaming-page .bb-title {
+    font-size: 1.75rem;
+  }
+
+
+  .redteaming-page .bb-subtitle {
+    font-size: 0.75rem;
+  }
+
+
+  .redteaming-page .bb-desc {
+    font-size: 0.75rem;
+  }
+
+
+  .redteaming-page .bb-profile-img {
+    width: 200px !important;
+
+    max-width: 200px;
+  }
+
+
+  .redteaming-page .bb-section {
+    padding:
+      35px 10px;
+  }
+
+
+  .redteaming-page .section-title {
+    font-size: 1.15rem;
+  }
+
+
+  .redteaming-page .course-level {
+    font-size: 0.58rem;
+
+    padding:
+      4px 8px;
+  }
+}
+
+
+/* =========================================================
+   320px - VERY SMALL PHONE
+   ========================================================= */
+
+@media (max-width: 320px) {
+
+  .redteaming-page .bb-title {
+    font-size: 1.55rem;
+  }
+
+
+  .redteaming-page .bb-profile-img {
+    width: 180px !important;
+
+    max-width: 180px;
+  }
+
+
+  .redteaming-page .course-content {
+    padding: 15px;
+  }
+}

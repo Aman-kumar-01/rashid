@@ -1,511 +1,1051 @@
-/* ===================== BASE ===================== */
+/* =========================================================
+   KHAN SPLOIT - ALL CTF LAB
+   FULL RESPONSIVE
+   Desktop / Laptop / Tablet / Mobile
+   ========================================================= */
+
 .ctflab-page {
+  width: 100%;
   min-height: 100vh;
+  overflow-x: hidden;
+
   background: #07040f;
   color: #e9d5ff;
 }
 
-/* ===================== HERO ===================== */
-.bb-hero {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 4rem 3rem 3.5rem;
+.ctflab-page *,
+.ctflab-page *::before,
+.ctflab-page *::after {
+  box-sizing: border-box;
+}
+
+.ctflab-page img {
+  max-width: 100%;
+  display: block;
+}
+
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.ctflab-page .bb-hero {
+  width: 100%;
   max-width: 1300px;
+
   margin: 0 auto;
-  gap: 3rem;
-  flex-wrap: wrap;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    minmax(240px, 400px);
+
+  align-items: center;
+
+  gap: clamp(30px, 6vw, 90px);
+
+  padding:
+    clamp(45px, 7vw, 80px)
+    clamp(15px, 4vw, 50px);
 }
 
-.bb-hero-left {
-  flex: 1;
-  min-width: 300px;
+
+.ctflab-page .bb-hero-left {
+  width: 100%;
+  min-width: 0;
+  max-width: 650px;
 }
 
-.bb-badge {
+
+/* =========================================================
+   HERO RIGHT
+   ========================================================= */
+
+.ctflab-page .bb-hero-right {
+  width: 100%;
+
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+
+  margin: 0;
+  padding: 0;
+
+  background: transparent;
+}
+
+
+/* =========================================================
+   HERO IMAGE
+   ========================================================= */
+
+.ctflab-page .bb-profile-wrapper {
+  width: 100%;
+  height: auto;
+
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+
+  margin: 0;
+  padding: 0;
+
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+
+.ctflab-page .bb-profile-img {
+  width: min(320px, 30vw);
+
+  max-width: 320px;
+
+  height: auto;
+
+  aspect-ratio: 1 / 1;
+
+  object-fit: contain;
+
+  margin: 0 auto;
+
+  background: transparent;
+
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+
+/* =========================================================
+   BADGE
+   ========================================================= */
+
+.ctflab-page .bb-badge {
   display: inline-block;
-  padding: 0.4rem 1.2rem;
-  background: rgba(168, 85, 247, 0.15);
-  border: 1px solid rgba(168, 85, 247, 0.4);
+
+  width: fit-content;
+  max-width: 100%;
+
+  padding: 8px 18px;
+
+  margin-bottom: 18px;
+
+  background:
+    rgba(168, 85, 247, 0.15);
+
+  border:
+    1px solid
+    rgba(168, 85, 247, 0.4);
+
   border-radius: 50px;
-  font-size: 0.78rem;
-  letter-spacing: 1.5px;
+
   color: #c084fc;
-  margin-bottom: 1.3rem;
+
+  font-size:
+    clamp(
+      0.62rem,
+      1.2vw,
+      0.8rem
+    );
+
+  letter-spacing:
+    clamp(
+      0.8px,
+      0.2vw,
+      1.5px
+    );
+
+  line-height: 1.4;
+
+  text-align: center;
 }
 
-.bb-title {
-  font-size: 3.3rem;
-  font-weight: 800;
-  margin: 0 0 0.9rem;
+
+/* =========================================================
+   HERO TITLE
+   ========================================================= */
+
+.ctflab-page .bb-title {
+  width: 100%;
+
+  margin: 0 0 15px;
+
   color: #f3e8ff;
-  line-height: 1.15;
+
+  font-size:
+    clamp(
+      2rem,
+      5vw,
+      3.3rem
+    );
+
+  font-weight: 800;
+
+  line-height: 1.1;
+
+  overflow-wrap: anywhere;
 }
 
-.gradient-text {
-  background: linear-gradient(90deg, #c084fc, #a855f7, #7c3aed);
+
+.ctflab-page .gradient-text {
+  background:
+    linear-gradient(
+      90deg,
+      #c084fc,
+      #a855f7,
+      #7c3aed
+    );
+
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+
   background-clip: text;
 }
 
-.bb-subtitle {
-  font-size: 1.1rem;
+
+/* =========================================================
+   HERO SUBTITLE
+   ========================================================= */
+
+.ctflab-page .bb-subtitle {
+  width: 100%;
+
+  margin: 0 0 15px;
+
   color: #c084fc;
-  margin: 0 0 1.1rem;
+
+  font-size:
+    clamp(
+      0.82rem,
+      1.5vw,
+      1.1rem
+    );
+
   font-weight: 500;
+
+  line-height: 1.7;
+
+  overflow-wrap: anywhere;
 }
 
-.bb-desc {
-  font-size: 1.02rem;
-  color: #a78bfa;
-  line-height: 1.65;
-  max-width: 480px;
-}
 
-/* ===== PROGRESS CARD ===== */
-.bb-hero-right {
-  display: flex;
-  justify-content: center;
-}
+/* =========================================================
+   HERO DESCRIPTION
+   ========================================================= */
 
-.progress-card {
-  background: linear-gradient(145deg, rgba(25, 12, 45, 0.95), rgba(15, 8, 30, 0.98));
-  border: 1px solid rgba(168, 85, 247, 0.35);
-  border-radius: 22px;
-  padding: 1.7rem 1.8rem;
-  width: 310px;
-  box-shadow: 0 0 50px rgba(124, 58, 237, 0.22);
-}
+.ctflab-page .bb-desc {
+  width: 100%;
 
-.progress-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 1.4rem;
-}
+  max-width: 540px;
 
-.progress-header h3 {
   margin: 0;
-  font-size: 1.15rem;
-  color: #f3e8ff;
+
+  color: #a78bfa;
+
+  font-size:
+    clamp(
+      0.8rem,
+      1.3vw,
+      1.02rem
+    );
+
+  line-height: 1.7;
+
+  overflow-wrap: anywhere;
 }
 
-.progress-tag {
-  font-size: 0.7rem;
-  background: white;
-  color: #d11bde;
-  padding: 0.2rem 0.6rem;
-  border-radius: 50px;
-  border: 1px solid white;
-  font-weight: bold;
-  
-}
 
-.circle-wrapper {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 0.8rem;
-}
+/* =========================================================
+   CONTROLS
+   ========================================================= */
 
-.circle-progress {
-  position: relative;
-  width: 135px;
-  height: 135px;
-}
-
-.circle-progress svg {
+.ctflab-page .controls-section {
   width: 100%;
-  height: 100%;
-  transform: rotate(-90deg);
-}
 
-.circle-bg {
-  fill: none;
-  stroke: rgba(168, 85, 247, 0.15);
-  stroke-width: 9;
-}
-
-.circle-fill {
-  fill: none;
-  stroke: url(#gradient); /* fallback */
-  stroke: #a855f7;
-  stroke-width: 9;
-  stroke-linecap: round;
-  transition: stroke-dasharray 0.7s ease;
-}
-
-.circle-text {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-}
-
-.circle-text .percent {
-  display: block;
-  font-size: 1.75rem;
-  font-weight: 700;
-  color: #f3e8ff;
-}
-
-.circle-text .label {
-  font-size: 0.72rem;
-  color: #c084fc;
-  letter-spacing: 0.5px;
-}
-
-.solved-count {
-  text-align: center;
-  color: #a78bfa;
-  font-size: 0.9rem;
-  margin: 0 0 1.4rem;
-}
-
-.solved-count strong {
-  color: #e9d5ff;
-}
-
-.category-progress-list {
-  display: flex;
-  flex-direction: column;
-  gap: 0.85rem;
-}
-
-.cat-info {
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.78rem;
-  margin-bottom: 0.25rem;
-}
-
-.cat-name {
-  color: #c084fc;
-}
-
-.cat-count {
-  color: #a78bfa;
-}
-
-.progress-bar {
-  height: 6px;
-  background: rgba(168, 85, 247, 0.12);
-  border-radius: 50px;
-  overflow: hidden;
-}
-
-.progress-fill {
-  height: 100%;
-  background: linear-gradient(90deg, #7c3aed, #a855f7);
-  border-radius: 50px;
-  transition: width 0.5s ease;
-}
-
-/* ===================== TABS ===================== */
-.top-tabs {
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-  padding: 1.2rem 1rem 0.4rem;
   max-width: 1300px;
+
   margin: 0 auto;
+
+  padding:
+    10px
+    clamp(12px, 4vw, 40px)
+    25px;
 }
 
-.tab-btn {
-  background: transparent;
-  border: none;
-  color: #a78bfa;
-  font-size: 1.05rem;
-  font-weight: 600;
-  cursor: pointer;
-  padding: 0.45rem 1.1rem;
-  border-bottom: 3px solid transparent;
-  transition: all 0.25s ease;
-}
 
-.tab-btn.active {
-  color: #f3e8ff;
-  border-bottom-color: #a855f7;
-}
+/* =========================================================
+   SEARCH
+   ========================================================= */
 
-.tab-btn:hover {
-  color: #e9d5ff;
-}
-
-/* ===================== CONTROLS ===================== */
-.controls-section {
-  max-width: 1300px;
-  margin: 0 auto;
-  padding: 1.4rem 2rem 1rem;
-}
-
-.search-box {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 1.4rem;
-}
-
-.search-box input {
+.ctflab-page .search-box {
   width: 100%;
-  max-width: 500px;
-  padding: 0.85rem 1.4rem;
-  background: rgba(18, 10, 35, 0.9);
-  border: 1px solid rgba(168, 85, 247, 0.35);
+
+  display: flex;
+
+  justify-content: center;
+
+  margin-bottom: 20px;
+}
+
+
+.ctflab-page .search-box input {
+  width: 100%;
+
+  max-width: 550px;
+
+  min-height: 46px;
+
+  padding:
+    10px 20px;
+
+  background:
+    rgba(18, 10, 35, 0.9);
+
+  border:
+    1px solid
+    rgba(168, 85, 247, 0.35);
+
   border-radius: 50px;
-  color: #e9d5ff;
-  font-size: 0.98rem;
+
   outline: none;
-  transition: all 0.25s;
+
+  color: #e9d5ff;
+
+  font-size: 0.95rem;
 }
 
-.search-box input:focus {
+
+.ctflab-page .search-box input:focus {
   border-color: #a855f7;
-  box-shadow: 0 0 0 3px rgba(168, 85, 247, 0.18);
+
+  box-shadow:
+    0 0 0 3px
+    rgba(168, 85, 247, 0.15);
 }
 
-.search-box input::placeholder {
+
+.ctflab-page .search-box input::placeholder {
   color: #7c6a9e;
 }
 
-.filter-row {
+
+/* =========================================================
+   FILTER ROW
+   ========================================================= */
+
+.ctflab-page .filter-row {
+  width: 100%;
+
   display: flex;
-  justify-content: center;      /* ← added */
+
+  justify-content: center;
   align-items: center;
-  gap: 1.1rem;
+
   flex-wrap: wrap;
+
+  gap: 10px;
 }
 
-.category-pills {
+
+.ctflab-page .category-pills {
+  width: 100%;
+
   display: flex;
+
+  justify-content: center;
+
   flex-wrap: wrap;
-  justify-content: center;      /* ← added */
-  gap: 0.65rem;
-}
 
-.filter-label {
-  font-size: 0.88rem;
-  color: #c084fc;
-  font-weight: 600;
+  gap: 8px;
 }
 
 
+/* =========================================================
+   FILTER BUTTON
+   ========================================================= */
 
-.pill {
-  background: rgba(18, 10, 35, 0.8);
-  border: 1px solid rgba(168, 85, 247, 0.3);
-  color: #c084fc;
-  padding: 0.4rem 1rem;
+.ctflab-page .pill {
+  min-height: 36px;
+
+  padding:
+    7px 15px;
+
+  background:
+    rgba(18, 10, 35, 0.8);
+
+  border:
+    1px solid
+    rgba(168, 85, 247, 0.3);
+
   border-radius: 50px;
-  font-size: 0.84rem;
+
+  color: #c084fc;
+
+  font-size: 0.82rem;
+
   cursor: pointer;
-  transition: all 0.25s ease;
+
+  transition:
+    all 0.25s ease;
 }
 
-.pill:hover {
+
+.ctflab-page .pill:hover {
   border-color: #a855f7;
+
   color: #e9d5ff;
 }
 
-.pill.active {
-  background: rgba(124, 58, 237, 0.35);
+
+.ctflab-page .pill.active {
+  background:
+    rgba(124, 58, 237, 0.35);
+
   border-color: #a855f7;
+
   color: #f3e8ff;
 }
 
-/* ===================== LABS SECTION ===================== */
-.bb-section {
-  padding: 1.3rem 2rem 5rem;
+
+/* =========================================================
+   MAIN LAB SECTION
+   ========================================================= */
+
+.ctflab-page .bb-section {
+  width: 100%;
+
   max-width: 1300px;
+
   margin: 0 auto;
+
+  padding:
+    25px
+    clamp(12px, 4vw, 40px)
+    70px;
 }
 
-.category-section {
-  margin-bottom: 3.2rem;
+
+/* =========================================================
+   CATEGORY SECTION
+   ========================================================= */
+
+.ctflab-page .category-section {
+  width: 100%;
+
+  margin-bottom:
+    clamp(
+      40px,
+      6vw,
+      65px
+    );
 }
 
-.category-title {
-  font-size: 2.4rem;
-  color: #f3e8ff;
-  margin: 0 0 1.3rem;
-  padding-bottom: 0.55rem;
-  border-bottom: 1px solid rgba(168, 85, 247, 0.22);
+
+/* =========================================================
+   CATEGORY HEADER
+   ========================================================= */
+
+.ctflab-page .section-header {
+  width: 100%;
+
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+
+  gap: 12px;
+
+  margin-bottom: 28px;
+
   text-align: center;
 }
 
-.courses-grid {
+
+.ctflab-page .section-logo {
+  width: 38px;
+  height: 38px;
+
+  flex-shrink: 0;
+
+  object-fit: contain;
+}
+
+
+.ctflab-page .category-title {
+  margin: 0;
+
+  color: #f3e8ff;
+
+  font-size:
+    clamp(
+      1.4rem,
+      4vw,
+      2.3rem
+    );
+
+  font-weight: 600;
+
+  line-height: 1.3;
+
+  overflow-wrap: anywhere;
+}
+
+
+.ctflab-page .category-title::after {
+  content: "";
+
+  display: block;
+
+  width: 70px;
+  height: 3px;
+
+  margin:
+    10px auto 0;
+
+  border-radius: 50px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #7c3aed,
+      #a855f7
+    );
+}
+
+
+/* =========================================================
+   COURSES / LAB GRID
+   ========================================================= */
+
+.ctflab-page .courses-grid {
+  width: 100%;
+
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
-  gap: 1.5rem;
+
+  grid-template-columns:
+    repeat(
+      auto-fit,
+      minmax(
+        min(280px, 100%),
+        1fr
+      )
+    );
+
+  gap:
+    clamp(
+      15px,
+      2vw,
+      24px
+    );
 }
 
-.course-card {
-  background: rgba(18, 10, 35, 0.85);
-  border: 1px solid rgba(168, 85, 247, 0.2);
-  border-radius: 16px;
-  overflow: hidden;
-  text-decoration: none;
-  color: inherit;
-  transition: all 0.3s ease;
+
+/* =========================================================
+   LAB CARD
+   ========================================================= */
+
+.ctflab-page .course-card {
+  width: 100%;
+
+  min-width: 0;
+
   display: flex;
+
   flex-direction: column;
+
+  overflow: hidden;
+
+  background:
+    rgba(18, 10, 35, 0.85);
+
+  border:
+    1px solid
+    rgba(168, 85, 247, 0.2);
+
+  border-radius: 16px;
+
+  color: inherit;
+
+  text-decoration: none;
+
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
-.course-card:hover {
+
+.ctflab-page .course-card:hover {
   transform: translateY(-7px);
-  border-color: rgba(168, 85, 247, 0.5);
-  box-shadow: 0 14px 32px rgba(124, 58, 237, 0.28);
+
+  border-color:
+    rgba(168, 85, 247, 0.5);
+
+  box-shadow:
+    0 14px 32px
+    rgba(124, 58, 237, 0.28);
 }
 
-.course-image {
+
+/* =========================================================
+   CARD IMAGE
+   ========================================================= */
+
+.ctflab-page .course-image {
   position: relative;
-  height: 175px;
+
+  width: 100%;
+
+  aspect-ratio: 16 / 9;
+
   overflow: hidden;
 }
 
-.course-image img {
+
+.ctflab-page .course-image img {
   width: 100%;
   height: 100%;
+
   object-fit: cover;
-  transition: transform 0.4s ease;
+
+  transition:
+    transform 0.4s ease;
 }
 
-.course-card:hover .course-image img {
+
+.ctflab-page .course-card:hover
+.course-image img {
   transform: scale(1.05);
 }
 
-.course-level {
+
+/* =========================================================
+   LEVEL BADGE
+   ========================================================= */
+
+.ctflab-page .course-level {
   position: absolute;
-  top: 12px;
-  left: 12px;
-  background: rgba(124, 58, 237, 0.9);
+
+  top: 10px;
+  left: 10px;
+
+  max-width:
+    calc(100% - 20px);
+
+  padding:
+    5px 9px;
+
+  background:
+    rgba(124, 58, 237, 0.9);
+
+  border-radius: 50px;
+
   color: white;
-  font-size: 0.7rem;
-  padding: 0.28rem 0.65rem;
-  border-radius: 50px;
+
+  font-size: 0.65rem;
+
   font-weight: 500;
+
+  white-space: nowrap;
+
+  overflow: hidden;
+
+  text-overflow: ellipsis;
 }
 
-.solved-badge {
+
+/* =========================================================
+   SOLVED BADGE
+   ========================================================= */
+
+.ctflab-page .solved-badge {
   position: absolute;
-  top: 12px;
-  right: 12px;
+
+  top: 10px;
+  right: 10px;
+
+  max-width:
+    calc(100% - 20px);
+
+  padding:
+    5px 9px;
+
   background: white;
-  color: rgb(215, 17, 225);
-  font-size: 0.68rem;
-  padding: 0.25rem 0.55rem;
+
   border-radius: 50px;
+
+  color: #d111e1;
+
+  font-size: 0.65rem;
+
   font-weight: 600;
+
+  white-space: nowrap;
 }
 
-.course-content {
-  padding: 1.25rem 1.35rem 1.4rem;
+
+/* =========================================================
+   CARD CONTENT
+   ========================================================= */
+
+.ctflab-page .course-content {
+  width: 100%;
+
+  min-width: 0;
+
   flex: 1;
+
   display: flex;
+
   flex-direction: column;
+
+  padding:
+    18px;
 }
 
-.course-content h3 {
-  margin: 0 0 0.55rem;
-  font-size: 1.08rem;
-  color: #6c10cf;
+
+.ctflab-page .course-content h3 {
+  margin:
+    0 0 9px;
+
+  color: #f3e8ff;
+
+  font-size:
+    clamp(
+      0.95rem,
+      1.4vw,
+      1.08rem
+    );
+
+  line-height: 1.4;
+
+  overflow-wrap: anywhere;
 }
 
-.course-content p {
-  margin: 0 0 1rem;
-  font-size: 0.87rem;
+
+.ctflab-page .course-content p {
+  margin:
+    0 0 15px;
+
   color: #a78bfa;
-  line-height: 1.5;
+
+  font-size:
+    clamp(
+      0.76rem,
+      1.1vw,
+      0.87rem
+    );
+
+  line-height: 1.55;
+
   flex: 1;
+
+  overflow-wrap: anywhere;
 }
 
-.read-more {
+
+.ctflab-page .read-more {
   color: #c084fc;
-  font-size: 0.88rem;
+
+  font-size:
+    clamp(
+      0.76rem,
+      1.1vw,
+      0.88rem
+    );
+
   font-weight: 600;
 }
 
-.course-card:hover .read-more {
+
+.ctflab-page .course-card:hover
+.read-more {
   color: #e9d5ff;
 }
 
-.empty-state,
-.dashboard-placeholder {
+
+/* =========================================================
+   EMPTY / DASHBOARD
+   ========================================================= */
+
+.ctflab-page .empty-state,
+.ctflab-page .dashboard-placeholder {
+  width: 100%;
+
+  padding:
+    60px 15px;
+
   text-align: center;
-  padding: 4rem 1rem;
+
   color: #a78bfa;
 }
 
-.dashboard-placeholder h2 {
+
+.ctflab-page .dashboard-placeholder h2 {
+  margin-bottom: 10px;
+
   color: #f3e8ff;
-  margin-bottom: 0.7rem;
 }
 
-/* ===================== RESPONSIVE ===================== */
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
 @media (max-width: 900px) {
-  .bb-hero {
-    flex-direction: column;
-    text-align: center;
-    padding: 3rem 1.5rem;
-  }
 
-  .bb-desc {
-    margin: 0 auto;
-  }
-
-  .bb-title {
-    font-size: 2.5rem;
-  }
-
-  .progress-card {
-    width: 100%;
-    max-width: 340px;
-  }
-
-  .filter-row {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .courses-grid {
+  .ctflab-page .bb-hero {
     grid-template-columns: 1fr;
+
+    text-align: center;
+
+    gap: 35px;
+
+    padding:
+      50px 20px;
+  }
+
+
+  .ctflab-page .bb-hero-left {
+    max-width: 750px;
+
+    margin: 0 auto;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+  }
+
+
+  .ctflab-page .bb-desc {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+
+  .ctflab-page .bb-profile-img {
+    width: 270px;
+
+    max-width: 270px;
+  }
+
+
+  .ctflab-page .courses-grid {
+    grid-template-columns:
+      repeat(
+        2,
+        minmax(0, 1fr)
+      );
   }
 }
 
 
-/* ===== Category Header (AI Red Teaming style) ===== */
-.section-header {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.9rem;
-  margin-bottom: 2rem;
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+  .ctflab-page .bb-hero {
+    padding:
+      40px 15px;
+
+    gap: 25px;
+  }
+
+
+  .ctflab-page .bb-profile-img {
+    width: 220px;
+
+    max-width: 220px;
+  }
+
+
+  .ctflab-page .bb-title {
+    font-size:
+      clamp(
+        1.8rem,
+        9vw,
+        2.5rem
+      );
+  }
+
+
+  .ctflab-page .bb-subtitle {
+    font-size: 0.8rem;
+  }
+
+
+  .ctflab-page .bb-desc {
+    font-size: 0.78rem;
+  }
+
+
+  .ctflab-page .controls-section {
+    padding:
+      10px 12px 20px;
+  }
+
+
+  .ctflab-page .search-box input {
+    min-height: 44px;
+
+    padding:
+      9px 17px;
+
+    font-size: 0.85rem;
+  }
+
+
+  .ctflab-page .category-pills {
+    gap: 6px;
+  }
+
+
+  .ctflab-page .pill {
+    padding:
+      6px 11px;
+
+    font-size: 0.72rem;
+  }
+
+
+  .ctflab-page .bb-section {
+    padding:
+      20px 12px 50px;
+  }
+
+
+  .ctflab-page .section-header {
+    gap: 8px;
+
+    margin-bottom: 22px;
+  }
+
+
+  .ctflab-page .section-logo {
+    width: 30px;
+    height: 30px;
+  }
+
+
+  .ctflab-page .category-title {
+    font-size: 1.35rem;
+  }
+
+
+  .ctflab-page .courses-grid {
+    grid-template-columns: 1fr;
+
+    gap: 16px;
+  }
+
+
+  .ctflab-page .course-content {
+    padding:
+      17px 16px 19px;
+  }
 }
 
-.section-logo {
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  object-fit: cover;
-  box-shadow: 0 0 15px rgba(168, 85, 247, 0.5);
+
+/* =========================================================
+   SMALL PHONE
+   ========================================================= */
+
+@media (max-width: 400px) {
+
+  .ctflab-page .bb-hero {
+    padding:
+      32px 10px;
+  }
+
+
+  .ctflab-page .bb-profile-img {
+    width: 190px;
+
+    max-width: 190px;
+  }
+
+
+  .ctflab-page .bb-title {
+    font-size: 1.7rem;
+  }
+
+
+  .ctflab-page .bb-subtitle {
+    font-size: 0.72rem;
+  }
+
+
+  .ctflab-page .bb-desc {
+    font-size: 0.72rem;
+  }
+
+
+  .ctflab-page .bb-section {
+    padding:
+      18px 9px 40px;
+  }
+
+
+  .ctflab-page .category-title {
+    font-size: 1.15rem;
+  }
+
+
+  .ctflab-page .section-logo {
+    width: 27px;
+    height: 27px;
+  }
+
+
+  .ctflab-page .course-content {
+    padding:
+      15px;
+  }
+
+
+  .ctflab-page .course-content h3 {
+    font-size: 0.95rem;
+  }
+
+
+  .ctflab-page .course-content p {
+    font-size: 0.76rem;
+  }
 }
 
-.category-title {
-  font-size: 2.5rem;
-  margin: 0;
-  color: #f3e8ff;
-  position: relative;
-  font-weight: 600;
-  letter-spacing: 0.5px;
-}
 
-/* Purple underline (same as AI Red Teaming) */
-.category-title::after {
-  content: "";
-  display: block;
-  width: 70px;
-  height: 3px;
-  background: linear-gradient(90deg, #7c3aed, #a855f7);
-  margin: 0.7rem auto 0;
-  border-radius: 50px;
+/* =========================================================
+   VERY SMALL PHONE
+   ========================================================= */
+
+@media (max-width: 320px) {
+
+  .ctflab-page .bb-title {
+    font-size: 1.5rem;
+  }
+
+
+  .ctflab-page .bb-profile-img {
+    width: 170px;
+
+    max-width: 170px;
+  }
+
+
+  .ctflab-page .category-title {
+    font-size: 1.05rem;
+  }
+
+
+  .ctflab-page .course-content {
+    padding: 13px;
+  }
 }
