@@ -1,16 +1,16 @@
 services:
 
   backend:
-    image: ghcr.io/aman-kumar-01/rashid-backend:latest
+    build: ./backend
     container_name: khan-baba-backend
     restart: unless-stopped
     env_file:
-      - .env
+      - ./backend/.env
     ports:
       - "5000:5000"
 
   frontend:
-    image: ghcr.io/aman-kumar-01/rashid-frontend:latest
+    build: ./frontend
     container_name: khan-baba-frontend
     restart: unless-stopped
     ports:
