@@ -28,60 +28,12 @@ const userSchema = new mongoose.Schema(
     password: {
       type: String,
       required: true,
-      minlength: 6,
+      minlength: 8,
     },
 
-    // Signup verification
     isVerified: {
       type: Boolean,
-      default: false,
-    },
-
-    verificationOtpHash: {
-      type: String,
-      default: null,
-    },
-
-    verificationOtpExpires: {
-      type: Date,
-      default: null,
-    },
-
-    verificationOtpAttempts: {
-      type: Number,
-      default: 0,
-    },
-
-    // Login OTP
-    loginOtpHash: {
-      type: String,
-      default: null,
-    },
-
-    loginOtpExpires: {
-      type: Date,
-      default: null,
-    },
-
-    loginOtpAttempts: {
-      type: Number,
-      default: 0,
-    },
-
-    // Forgot password OTP
-    resetOtpHash: {
-      type: String,
-      default: null,
-    },
-
-    resetOtpExpires: {
-      type: Date,
-      default: null,
-    },
-
-    resetOtpAttempts: {
-      type: Number,
-      default: 0,
+      default: true,
     },
   },
   {
