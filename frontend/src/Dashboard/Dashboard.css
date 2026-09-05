@@ -1187,3 +1187,633 @@ button { font-family: inherit; cursor: pointer; }
   .social-card { flex-direction: column; align-items: stretch; }
   .social-card button { width: 100%; }
 }
+
+/* =========================================================
+   FINAL RESPONSIVE FIX
+   KHAN SPLOIT DASHBOARD
+   ========================================================= */
+
+/* Prevent horizontal overflow */
+html,
+body,
+#root {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Main container */
+.dashboard-container {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* =========================================================
+   NAVBAR
+   ========================================================= */
+
+.navbar {
+  width: 100%;
+  min-height: 82px;
+  height: auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 20px;
+  padding: 12px clamp(15px, 4vw, 40px);
+
+  flex-wrap: wrap;
+}
+
+/* Logo area */
+.logo-area {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  flex-shrink: 0;
+}
+
+.logo-wrapper {
+  width: 60px;
+  height: 60px;
+  flex-shrink: 0;
+}
+
+.logo {
+  width: 60px;
+  height: 60px;
+
+  margin-left: 0;
+  object-fit: contain;
+}
+
+.logo-content {
+  min-width: 0;
+}
+
+.logo-title {
+  font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+  white-space: nowrap;
+}
+
+.logo-sub {
+  font-size: clamp(0.55rem, 1vw, 0.72rem);
+  white-space: nowrap;
+}
+
+/* Navigation */
+.navbar nav {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 4px;
+
+  width: 100%;
+  max-width: 100%;
+
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  flex-wrap: wrap;
+}
+
+.menu li {
+  white-space: nowrap;
+  font-size: clamp(0.68rem, 1vw, 0.85rem);
+  padding: 8px 10px;
+}
+
+/* Login button */
+.login-btn {
+  flex-shrink: 0;
+}
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.hero {
+  width: 100%;
+  max-width: 1600px;
+
+  margin: 0 auto;
+
+  display: grid;
+
+  grid-template-columns: minmax(0, 1fr) minmax(220px, 420px);
+
+  align-items: center;
+
+  gap: clamp(30px, 6vw, 100px);
+
+  padding: clamp(50px, 8vw, 90px)
+           clamp(20px, 5vw, 50px);
+}
+
+/* Hero left */
+.hero-left {
+  width: 100%;
+  max-width: 650px;
+
+  height: auto;
+
+  margin-left: 0;
+  transform: none;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Hero badge */
+.hero-badge {
+  width: fit-content !important;
+  max-width: 100%;
+
+  height: auto !important;
+
+  margin: 0 0 20px 0;
+
+  padding: 10px 20px;
+
+  font-size: clamp(11px, 1.3vw, 14px) !important;
+}
+
+/* Hero title */
+.hero-title {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  line-height: 1.1;
+
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.extrude-text {
+  font-size: clamp(2.5rem, 6vw, 4.3rem);
+
+  margin: 8px 0;
+}
+
+/* Hero description */
+.hero-description {
+  max-width: 700px;
+
+  font-size: clamp(0.85rem, 1.5vw, 1rem);
+
+  line-height: 1.7;
+}
+
+/* Hero logo */
+.hero-logo {
+  width: min(100%, 420px);
+  height: auto;
+
+  max-height: 500px;
+
+  margin: 0 auto;
+
+  object-fit: contain;
+}
+
+/* =========================================================
+   ALL GRIDS
+   ========================================================= */
+
+.feature-grid,
+.social-grid,
+.security-grid,
+.news-grid,
+.timeline {
+  width: 100%;
+  max-width: 1450px;
+
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Feature cards */
+.feature-grid {
+  grid-template-columns:
+    repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+
+  padding-left: clamp(15px, 4vw, 4rem);
+  padding-right: clamp(15px, 4vw, 4rem);
+}
+
+/* Social */
+.social-section,
+.security-section,
+.activity-section {
+  width: 100%;
+  max-width: 1450px;
+
+  padding-left: clamp(15px, 4vw, 3rem);
+  padding-right: clamp(15px, 4vw, 3rem);
+}
+
+/* Security */
+.security-grid {
+  grid-template-columns:
+    repeat(auto-fit, minmax(min(240px, 100%), 1fr));
+}
+
+/* News */
+.news-section {
+  width: 100%;
+  max-width: 1450px;
+
+  padding-left: clamp(15px, 4vw, 3rem);
+  padding-right: clamp(15px, 4vw, 3rem);
+}
+
+.news-grid {
+  grid-template-columns:
+    repeat(auto-fit, minmax(min(280px, 100%), 1fr));
+}
+
+/* Timeline */
+.timeline {
+  grid-template-columns:
+    repeat(auto-fit, minmax(min(340px, 100%), 1fr));
+}
+
+/* =========================================================
+   CONTACT
+   ========================================================= */
+
+.contact-section {
+  width: 100%;
+  max-width: 900px;
+
+  padding-left: clamp(15px, 4vw, 30px);
+  padding-right: clamp(15px, 4vw, 30px);
+}
+
+.contact-card {
+  width: 100%;
+  padding: clamp(20px, 5vw, 40px);
+}
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.footer-container {
+  width: 100%;
+  max-width: 1450px;
+
+  padding-left: clamp(15px, 4vw, 30px);
+  padding-right: clamp(15px, 4vw, 30px);
+
+  grid-template-columns:
+    repeat(auto-fit, minmax(180px, 1fr));
+
+  gap: 30px;
+}
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 1024px) {
+
+  .navbar {
+    justify-content: center;
+  }
+
+  .logo-area {
+    width: auto;
+  }
+
+  .navbar nav {
+    width: 100%;
+    flex-basis: 100%;
+    order: 3;
+  }
+
+  .menu {
+    justify-content: center;
+  }
+
+  .login-btn {
+    width: auto;
+  }
+
+  /* Hero becomes single column */
+  .hero {
+    grid-template-columns: 1fr;
+
+    text-align: center;
+
+    gap: 40px;
+
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+
+  .hero-left {
+    max-width: 800px;
+    margin: 0 auto;
+    align-items: center;
+  }
+
+  .hero-logo {
+    width: min(60vw, 350px);
+    margin: 0 auto;
+  }
+
+  .hero-description {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+  .navbar {
+    padding: 12px 15px;
+
+    flex-direction: row;
+
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .logo-wrapper {
+    width: 48px;
+    height: 48px;
+  }
+
+  .logo {
+    width: 48px;
+    height: 48px;
+  }
+
+  .logo-title {
+    font-size: 1.2rem;
+  }
+
+  .logo-sub {
+    font-size: 0.5rem;
+    letter-spacing: 1px;
+  }
+
+  /* Navigation horizontal scroll */
+  .navbar nav {
+    order: 3;
+
+    width: 100%;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    scrollbar-width: none;
+  }
+
+  .navbar nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  .menu {
+    width: max-content;
+
+    flex-wrap: nowrap;
+
+    justify-content: flex-start;
+
+    padding-bottom: 4px;
+  }
+
+  .menu li {
+    flex: 0 0 auto;
+
+    font-size: 0.72rem;
+
+    padding: 7px 10px;
+  }
+
+  /* Login */
+  .login-btn {
+    padding: 8px 12px;
+    font-size: 0.72rem;
+  }
+
+  /* Hero */
+  .hero {
+    width: 100%;
+
+    padding: 45px 18px;
+
+    gap: 35px;
+  }
+
+  .hero-title {
+    font-size: clamp(1.8rem, 9vw, 2.5rem);
+  }
+
+  .extrude-text {
+    font-size: clamp(2.2rem, 11vw, 3.2rem);
+  }
+
+  .hero-logo {
+    width: min(70vw, 300px);
+  }
+
+  /* Cards */
+  .feature-grid,
+  .social-grid,
+  .security-grid,
+  .news-grid,
+  .timeline {
+    grid-template-columns: 1fr;
+
+    gap: 18px;
+  }
+
+  .feature-grid {
+    padding: 25px 15px 50px;
+  }
+
+  .social-section,
+  .security-section,
+  .activity-section {
+    padding: 40px 15px;
+  }
+
+  .news-section {
+    padding: 40px 15px;
+  }
+
+  /* Timeline */
+  .timeline-card {
+    min-height: auto;
+    padding: 18px;
+  }
+
+  .timeline-header {
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  /* Contact */
+  .contact-section {
+    margin: 70px auto;
+  }
+
+  /* Footer */
+  .footer-container {
+    grid-template-columns: 1fr 1fr;
+    gap: 30px 20px;
+  }
+
+  .footer-bottom {
+    gap: 15px;
+  }
+
+  .footer-bottom-links {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+  .navbar {
+    padding: 10px;
+  }
+
+  .logo-area {
+    gap: 7px;
+  }
+
+  .logo-wrapper {
+    width: 42px;
+    height: 42px;
+  }
+
+  .logo {
+    width: 42px;
+    height: 42px;
+  }
+
+  .logo-title {
+    font-size: 1rem;
+    letter-spacing: 1px;
+  }
+
+  .logo-sub {
+    font-size: 0.43rem;
+  }
+
+  .login-btn {
+    padding: 7px 10px;
+  }
+
+  .hero {
+    padding: 35px 14px;
+  }
+
+  .hero-badge {
+    font-size: 10px !important;
+    padding: 8px 14px;
+  }
+
+  .hero-title {
+    font-size: 1.7rem;
+  }
+
+  .extrude-text {
+    font-size: 2.2rem;
+  }
+
+  .hero-description {
+    font-size: 0.82rem;
+  }
+
+  .hero-logo {
+    width: 75vw;
+    max-width: 260px;
+  }
+
+  .feature-card,
+  .social-card,
+  .security-card,
+  .news-card,
+  .timeline-card {
+    width: 100%;
+  }
+
+  .social-card {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .social-card button {
+    width: 100%;
+  }
+
+  .footer-container {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-bottom {
+    text-align: center;
+  }
+}
+
+/* =========================================================
+   VERY SMALL DEVICES
+   ========================================================= */
+
+@media (max-width: 360px) {
+
+  .logo-title {
+    font-size: 0.9rem;
+  }
+
+  .logo-sub {
+    display: none;
+  }
+
+  .login-btn {
+    font-size: 0.65rem;
+    padding: 6px 8px;
+  }
+
+  .hero-title {
+    font-size: 1.5rem;
+  }
+
+  .extrude-text {
+    font-size: 1.9rem;
+  }
+
+  .hero-description {
+    font-size: 0.75rem;
+  }
+}
