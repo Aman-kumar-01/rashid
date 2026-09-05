@@ -1,0 +1,234 @@
+/* ===================== AI RED TEAMING PAGE ===================== */
+.airedteaming-page {
+  min-height: 100vh;
+  background: #07040f;
+  color: #e9d5ff;
+}
+
+/* ===== HERO ===== */
+.ai-hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5rem 3.5rem 4rem;
+  max-width: 1300px;
+  margin: 0 auto;
+  gap: 3rem;
+  flex-wrap: wrap;
+}
+
+.ai-hero-left {
+  flex: 1;
+  min-width: 300px;
+}
+
+.ai-badge {
+  display: inline-block;
+  padding: 0.4rem 1.2rem;
+  background: rgba(168, 85, 247, 0.15);
+  border: 1px solid rgba(168, 85, 247, 0.35);
+  border-radius: 50px;
+  font-size: 0.78rem;
+  letter-spacing: 1.6px;
+  color: #c084fc;
+  margin-bottom: 1.4rem;
+}
+
+.ai-title {
+  font-size: 3.6rem;
+  font-weight: 800;
+  margin: 0 0 1rem;
+  color: #f3e8ff;
+  line-height: 1.1;
+}
+
+.gradient-text {
+  background: linear-gradient(90deg, #c084fc, #a855f7, #7c3aed);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.ai-subtitle {
+  font-size: 1.15rem;
+  color: #c084fc;
+  margin: 0 0 1.3rem;
+  font-weight: 500;
+}
+
+.ai-desc {
+  font-size: 1.05rem;
+  color: #a78bfa;
+  line-height: 1.65;
+  max-width: 520px;
+}
+
+
+
+.ai-profile-wrapper {
+ 
+  width: 290px;
+  height: 290px;
+}
+
+
+
+
+
+.ai-profile-img {
+  width: 100%;
+
+  object-fit: cover;
+  
+  position: relative;
+  z-index: 2;
+}
+
+/* ===== SECTION ===== */
+.ai-section {
+  padding: 3.5rem 2rem 5rem;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.9rem;
+  margin-bottom: 2.8rem;
+}
+
+.section-logo {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 0 15px rgba(168, 85, 247, 0.5);
+}
+
+.section-title {
+  font-size: 1.9rem;
+  margin: 0;
+  color: #f3e8ff;
+  position: relative;
+}
+
+.section-title::after {
+  content: "";
+  display: block;
+  width: 70px;
+  height: 3px;
+  background: linear-gradient(90deg, #7c3aed, #a855f7);
+  margin: 0.7rem auto 0;
+  border-radius: 50px;
+}
+
+/* ===== COURSES GRID ===== */
+.courses-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.8rem;
+}
+
+.course-card {
+  background: rgba(18, 10, 35, 0.85);
+  border: 1px solid rgba(168, 85, 247, 0.2);
+  border-radius: 16px;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.course-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(168, 85, 247, 0.55);
+  box-shadow: 0 15px 35px rgba(124, 58, 237, 0.3);
+}
+
+.course-image {
+  position: relative;
+  height: 190px;
+  overflow: hidden;
+}
+
+.course-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.course-card:hover .course-image img {
+  transform: scale(1.06);
+}
+
+.course-level {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: rgba(124, 58, 237, 0.9);
+  color: white;
+  font-size: 0.72rem;
+  padding: 0.3rem 0.7rem;
+  border-radius: 50px;
+  font-weight: 500;
+}
+
+.course-content {
+  padding: 1.4rem 1.5rem 1.6rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.course-content h3 {
+  margin: 0 0 0.7rem;
+  font-size: 1.15rem;
+  color: #f3e8ff;
+  line-height: 1.35;
+}
+
+.course-content p {
+  margin: 0 0 1.2rem;
+  font-size: 0.9rem;
+  color: #a78bfa;
+  line-height: 1.55;
+  flex: 1;
+}
+
+.read-more {
+  color: #c084fc;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: color 0.2s;
+}
+
+.course-card:hover .read-more {
+  color: #e9d5ff;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 900px) {
+  .ai-hero {
+    flex-direction: column-reverse;
+    text-align: center;
+    padding: 3.5rem 1.5rem;
+  }
+
+  .ai-title {
+    font-size: 2.7rem;
+  }
+
+  .ai-desc {
+    margin: 0 auto;
+  }
+
+  .ai-profile-wrapper {
+    width: 220px;
+    height: 220px;
+  }
+}

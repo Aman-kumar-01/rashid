@@ -1,0 +1,838 @@
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import Navbar from "../../../components/Navbar/Navbar";
+import "./SessionHijacking.css";
+
+/* =========================================================
+   KHAN SPLOIT — Session Hijacking
+   Chapters + Quiz + Progress + Congrats
+========================================================= */
+
+const STORAGE_KEY = "khansploit_session_hijacking_course_completed";
+
+const chapters = [
+  // ====================== 01 ======================
+  {
+    id: "what-is-session-hijacking",
+    title: "01 What is Session Hijacking?",
+    content: (
+      <>
+        <h2>What is Session Hijacking?</h2>
+        <p>
+          Session hijacking refers to techniques that allow an attacker to take
+          over a valid user session. Once a session is under attacker control,
+          the attacker may act with the privileges of the legitimate user without
+          needing the original credentials again.
+        </p>
+        <p>
+          In ethical hacking and application security, this topic is studied to
+          understand risks in session management and to improve defenses —
+          always within authorized testing boundaries.
+        </p>
+
+        <h3>Core Idea</h3>
+        <ul>
+          <li>Sessions maintain authenticated state after login</li>
+          <li>If session identifiers or state can be stolen or predicted, identity can be abused</li>
+          <li>Strong session design and transport security are essential defenses</li>
+        </ul>
+
+        <div className="info-box">
+          <h4>Summary</h4>
+          <p>
+            Session hijacking targets the trust placed in an active session.
+            Protecting session identifiers and session lifecycle is critical for
+            application security.
+          </p>
+        </div>
+      </>
+    ),
+    quiz: {
+      question:
+        "What is the core idea behind session hijacking?",
+      options: [
+        "It only steals passwords from databases",
+        "Taking over a valid user session so the attacker can act with the user's privileges without needing original credentials",
+        "It only works on offline applications",
+        "It is unrelated to authentication state",
+      ],
+      correct:
+        "Taking over a valid user session so the attacker can act with the user's privileges without needing original credentials",
+    },
+  },
+
+  // ====================== 02 ======================
+  {
+    id: "why-sessions-exist",
+    title: "02 Why Sessions Exist",
+    content: (
+      <>
+        <h2>Why Sessions Exist</h2>
+        <p>
+          HTTP is traditionally stateless. Sessions provide a way for
+          applications to remember that a user has authenticated and to maintain
+          continuity across requests.
+        </p>
+
+        <h3>Typical Session Purpose</h3>
+        <ul>
+          <li>Preserve authentication state after login</li>
+          <li>Track user activity within an application</li>
+          <li>Support personalized or privileged functionality</li>
+          <li>Avoid repeated transmission of long-term credentials</li>
+        </ul>
+
+        <h3>Security Implication</h3>
+        <ul>
+          <li>The session becomes a high-value target</li>
+          <li>Compromise of the session can equal compromise of the account</li>
+          <li>Session design quality directly affects overall application risk</li>
+        </ul>
+
+        <div className="info-box">
+          <h4>Summary</h4>
+          <p>
+            Sessions solve a usability and architecture need, but they introduce
+            a concentrated security responsibility that must be handled carefully.
+          </p>
+        </div>
+      </>
+    ),
+    quiz: {
+      question:
+        "Why do sessions create a security implication?",
+      options: [
+        "Sessions have no security impact",
+        "The session becomes a high-value target; compromising it can equal compromising the account",
+        "Sessions only exist for offline apps",
+        "Sessions remove the need for any authentication",
+      ],
+      correct:
+        "The session becomes a high-value target; compromising it can equal compromising the account",
+    },
+  },
+
+  // ====================== 03 ======================
+  {
+    id: "session-identifiers",
+    title: "03 Session Identifiers",
+    content: (
+      <>
+        <h2>Session Identifiers</h2>
+        <p>
+          Most applications track sessions using a session identifier (session
+          ID or token). This value is presented by the client on subsequent
+          requests so the server can associate the request with an existing
+          session.
+        </p>
+
+        <h3>Key Properties of Strong Session IDs</h3>
+        <ul>
+          <li>High entropy and unpredictability</li>
+          <li>Sufficient length</li>
+          <li>Generated by a cryptographically strong source</li>
+          <li>Not derived from guessable user or time data</li>
+        </ul>
+
+        <h3>Why This Matters</h3>
+        <ul>
+          <li>Predictable session IDs can enable session guessing</li>
+          <li>Weak identifiers undermine otherwise good authentication</li>
+          <li>Identifier quality is a foundational session security control</li>
+        </ul>
+
+        <div className="info-box">
+          <h4>Summary</h4>
+          <p>
+            Session identifiers must be unpredictable. Weak ID generation creates
+            avoidable risk even when login controls appear strong.
+          </p>
+        </div>
+      </>
+    ),
+    quiz: {
+      question:
+        "What are key properties of strong session identifiers?",
+      options: [
+        "Short, predictable, and based on username only",
+        "High entropy, sufficient length, cryptographically strong generation, and not derived from guessable data",
+        "They should be the same for every user",
+        "They should be stored in plain text in URLs",
+      ],
+      correct:
+        "High entropy, sufficient length, cryptographically strong generation, and not derived from guessable data",
+    },
+  },
+
+  // ====================== 04 ======================
+  {
+    id: "common-session-risks",
+    title: "04 Common Session Security Risks",
+    content: (
+      <>
+        <h2>Common Session Security Risks</h2>
+        <p>
+          Session-related weaknesses often fall into a few recurring categories.
+          Understanding them helps prioritize defensive design.
+        </p>
+
+        <h3>Frequent Risk Areas</h3>
+        <ul>
+          <li>Session IDs exposed in URLs or logs</li>
+          <li>Session IDs transmitted over cleartext channels</li>
+          <li>Missing or weak cookie security attributes</li>
+          <li>Sessions that do not expire appropriately</li>
+          <li>Failure to invalidate sessions on logout or privilege change</li>
+          <li>Session fixation style design flaws</li>
+          <li>Overly long-lived sessions without re-authentication</li>
+        </ul>
+
+        <h3>Impact</h3>
+        <ul>
+          <li>Account takeover without password knowledge</li>
+          <li>Unauthorized access to user data and actions</li>
+          <li>Difficulty detecting abuse if monitoring is weak</li>
+        </ul>
+
+        <div className="info-box">
+          <h4>Summary</h4>
+          <p>
+            Many session risks are design and configuration issues. They are
+            preventable with disciplined session management practices.
+          </p>
+        </div>
+      </>
+    ),
+    quiz: {
+      question:
+        "Which of the following are common session security risks?",
+      options: [
+        "Only weak password policies",
+        "Session IDs in URLs/logs, cleartext transmission, weak cookie attributes, missing expiration, and failure to invalidate on logout",
+        "Sessions that are too short-lived",
+        "Using HTTPS exclusively",
+      ],
+      correct:
+        "Session IDs in URLs/logs, cleartext transmission, weak cookie attributes, missing expiration, and failure to invalidate on logout",
+    },
+  },
+
+  // ====================== 05 ======================
+  {
+    id: "cookie-based-sessions",
+    title: "05 Cookie-Based Sessions",
+    content: (
+      <>
+        <h2>Cookie-Based Sessions</h2>
+        <p>
+          Cookies are a common mechanism for storing and transmitting session
+          identifiers in web applications. Cookie configuration has a major
+          effect on session security.
+        </p>
+
+        <h3>Important Cookie Security Attributes (Conceptual)</h3>
+        <ul>
+          <li>
+            <strong>Secure</strong> — Helps restrict cookie transmission to encrypted channels
+          </li>
+          <li>
+            <strong>HttpOnly</strong> — Reduces access to the cookie from client-side scripts
+          </li>
+          <li>
+            <strong>SameSite</strong> — Helps control cross-site cookie behavior
+          </li>
+          <li>Appropriate domain and path scoping</li>
+        </ul>
+
+        <h3>Why Configuration Matters</h3>
+        <ul>
+          <li>Weak attributes increase exposure to common web risks</li>
+          <li>Correct attributes support defense-in-depth</li>
+          <li>Cookie handling should align with overall authentication design</li>
+        </ul>
+
+        <div className="info-box">
+          <h4>Summary</h4>
+          <p>
+            Cookie security attributes are simple but high-impact controls.
+            Correct configuration significantly reduces common session risks.
+          </p>
+        </div>
+      </>
+    ),
+    quiz: {
+      question:
+        "Which cookie attributes help improve session security?",
+      options: [
+        "None — cookies cannot be secured",
+        "Secure, HttpOnly, SameSite, and appropriate domain/path scoping",
+        "Only making cookies visible to all JavaScript",
+        "Storing passwords inside the cookie",
+      ],
+      correct:
+        "Secure, HttpOnly, SameSite, and appropriate domain/path scoping",
+    },
+  },
+
+  // ====================== 06 ======================
+  {
+    id: "transport-security",
+    title: "06 Transport Security & Sessions",
+    content: (
+      <>
+        <h2>Transport Security & Sessions</h2>
+        <p>
+          Session identifiers are sensitive secrets for the lifetime of the
+          session. Transmitting them over unprotected channels creates direct
+          exposure risk.
+        </p>
+
+        <h3>Key Principles</h3>
+        <ul>
+          <li>Use encrypted transport (HTTPS/TLS) for authenticated areas</li>
+          <li>Avoid mixed content and protocol downgrade issues</li>
+          <li>Ensure session cookies are marked for secure transport where applicable</li>
+          <li>Protect against interception on untrusted networks</li>
+        </ul>
+
+        <h3>Assessment Focus</h3>
+        <ul>
+          <li>Identify whether session tokens travel in cleartext</li>
+          <li>Check for inconsistent enforcement of encryption</li>
+          <li>Recommend strict transport security where missing</li>
+        </ul>
+
+        <div className="info-box">
+          <h4>Summary</h4>
+          <p>
+            Strong transport security is a foundational requirement for safe
+            session handling. Without it, other session controls are weakened.
+          </p>
+        </div>
+      </>
+    ),
+    quiz: {
+      question:
+        "Why is transport security critical for sessions?",
+      options: [
+        "Session IDs are never sensitive",
+        "Session identifiers are sensitive secrets; transmitting them over cleartext creates direct exposure risk",
+        "HTTPS is only needed for static pages",
+        "Transport security has no effect on session safety",
+      ],
+      correct:
+        "Session identifiers are sensitive secrets; transmitting them over cleartext creates direct exposure risk",
+    },
+  },
+
+  // ====================== 07 ======================
+  {
+    id: "session-lifecycle",
+    title: "07 Session Lifecycle Management",
+    content: (
+      <>
+        <h2>Session Lifecycle Management</h2>
+        <p>
+          Secure session handling covers the full lifecycle: creation, use,
+          renewal, and destruction.
+        </p>
+
+        <h3>Important Lifecycle Controls</h3>
+        <ul>
+          <li>Generate a new session identifier after authentication</li>
+          <li>Invalidate sessions on logout</li>
+          <li>Apply idle and absolute timeouts</li>
+          <li>Re-authenticate for sensitive actions when appropriate</li>
+          <li>Invalidate sessions after password or privilege changes</li>
+        </ul>
+
+        <h3>Why Lifecycle Matters</h3>
+        <ul>
+          <li>Reduces the window of opportunity for stolen sessions</li>
+          <li>Limits damage from abandoned or forgotten sessions</li>
+          <li>Supports cleaner access control and accountability</li>
+        </ul>
+
+        <div className="info-box">
+          <h4>Summary</h4>
+          <p>
+            Session security is not only about creating a strong ID. Managing
+            how long sessions live and when they are destroyed is equally important.
+          </p>
+        </div>
+      </>
+    ),
+    quiz: {
+      question:
+        "Which of the following are important session lifecycle controls?",
+      options: [
+        "Never expire sessions and keep the same ID forever",
+        "Generate new ID after authentication, invalidate on logout, apply timeouts, and re-authenticate for sensitive actions",
+        "Only create the session and never manage it again",
+        "Store session IDs in public logs",
+      ],
+      correct:
+        "Generate new ID after authentication, invalidate on logout, apply timeouts, and re-authenticate for sensitive actions",
+    },
+  },
+
+  // ====================== 08 ======================
+  {
+    id: "session-fixation-concepts",
+    title: "08 Session Fixation Concepts",
+    content: (
+      <>
+        <h2>Session Fixation Concepts</h2>
+        <p>
+          Session fixation issues arise when an application continues to use a
+          session identifier that was established before authentication, allowing
+          an attacker who knows that identifier to potentially benefit after the
+          victim logs in.
+        </p>
+
+        <h3>Core Problem</h3>
+        <ul>
+          <li>Pre-authentication session ID is reused after login</li>
+          <li>Attacker may force or know the ID in advance</li>
+          <li>Victim authentication upgrades the known session</li>
+        </ul>
+
+        <h3>High-Level Defense</h3>
+        <ul>
+          <li>Issue a new session identifier upon successful authentication</li>
+          <li>Do not trust pre-login session state for post-login identity</li>
+          <li>Combine with strong transport and cookie controls</li>
+        </ul>
+
+        <div className="info-box">
+          <h4>Summary</h4>
+          <p>
+            Session fixation is primarily a design flaw. Regenerating session
+            identifiers after login is a standard and effective control.
+          </p>
+        </div>
+      </>
+    ),
+    quiz: {
+      question:
+        "What is the main defense against session fixation?",
+      options: [
+        "Reuse the same session ID before and after login",
+        "Issue a new session identifier upon successful authentication",
+        "Never use sessions at all",
+        "Store the session ID in the URL permanently",
+      ],
+      correct:
+        "Issue a new session identifier upon successful authentication",
+    },
+  },
+
+  // ====================== 09 ======================
+  {
+    id: "detection-signals",
+    title: "09 Detection & Monitoring Signals",
+    content: (
+      <>
+        <h2>Detection & Monitoring Signals</h2>
+        <p>
+          Organizations can detect some session abuse patterns through logging,
+          analytics, and anomaly detection.
+        </p>
+
+        <h3>Useful Signals</h3>
+        <ul>
+          <li>Impossible travel or abrupt location changes for the same session</li>
+          <li>Sudden changes in device, browser, or IP characteristics</li>
+          <li>Concurrent use of one session from multiple distant locations</li>
+          <li>Unusual privileged actions shortly after login anomalies</li>
+          <li>Repeated session-related errors or token reuse patterns</li>
+        </ul>
+
+        <h3>Operational Practices</h3>
+        <ul>
+          <li>Log authentication and session lifecycle events</li>
+          <li>Alert on high-risk anomalies</li>
+          <li>Support rapid session revocation</li>
+        </ul>
+
+        <div className="info-box">
+          <h4>Summary</h4>
+          <p>
+            Detection does not replace strong session design, but it helps reduce
+            impact when sessions are abused.
+          </p>
+        </div>
+      </>
+    ),
+    quiz: {
+      question:
+        "Which signals can help detect possible session abuse?",
+      options: [
+        "Only successful logins with no other data",
+        "Impossible travel, sudden device/IP changes, concurrent distant use, and unusual privileged actions",
+        "Ignoring all session logs",
+        "Only monitoring page load times",
+      ],
+      correct:
+        "Impossible travel, sudden device/IP changes, concurrent distant use, and unusual privileged actions",
+    },
+  },
+
+  // ====================== 10 ======================
+  {
+    id: "defenses",
+    title: "10 Defenses & Secure Design",
+    content: (
+      <>
+        <h2>Defenses & Secure Design</h2>
+        <p>
+          Effective session protection is layered. No single control is enough
+          on its own.
+        </p>
+
+        <h3>Core Defenses</h3>
+        <ul>
+          <li>Cryptographically strong, unpredictable session identifiers</li>
+          <li>Encrypted transport for all authenticated traffic</li>
+          <li>Secure cookie attributes where cookies are used</li>
+          <li>Session regeneration after login</li>
+          <li>Idle and absolute timeouts</li>
+          <li>Proper logout and server-side invalidation</li>
+          <li>Re-authentication for sensitive operations</li>
+          <li>Monitoring and rapid revocation capability</li>
+        </ul>
+
+        <h3>Design Principle</h3>
+        <ul>
+          <li>Treat session tokens as sensitive secrets</li>
+          <li>Minimize lifetime and exposure</li>
+          <li>Bind sessions to expected context where practical</li>
+        </ul>
+
+        <div className="info-box">
+          <h4>Summary</h4>
+          <p>
+            Strong session security comes from good token design, transport
+            protection, lifecycle discipline, and monitoring.
+          </p>
+        </div>
+      </>
+    ),
+    quiz: {
+      question:
+        "What is the recommended approach to session protection?",
+      options: [
+        "Rely on a single control only",
+        "Use layered defenses: strong IDs, encrypted transport, secure cookies, regeneration, timeouts, invalidation, and monitoring",
+        "Never expire sessions",
+        "Store session tokens in plain text",
+      ],
+      correct:
+        "Use layered defenses: strong IDs, encrypted transport, secure cookies, regeneration, timeouts, invalidation, and monitoring",
+    },
+  },
+
+  // ====================== 11 ======================
+  {
+    id: "legal-ethical",
+    title: "11 Legal & Ethical Boundaries",
+    content: (
+      <>
+        <h2>Legal & Ethical Boundaries</h2>
+        <p>
+          Any practical testing related to sessions must be authorized. Session
+          data is sensitive and often tied directly to user identity and privacy.
+        </p>
+
+        <h3>Requirements</h3>
+        <ul>
+          <li>Written authorization and clear scope</li>
+          <li>Rules of engagement that define acceptable testing</li>
+          <li>Careful handling of any session-related data obtained</li>
+          <li>No testing against users or systems outside approval</li>
+        </ul>
+
+        <h3>Professional Conduct</h3>
+        <ul>
+          <li>Minimize collection of personal data</li>
+          <li>Protect evidence and test artifacts</li>
+          <li>Report findings constructively with remediation guidance</li>
+          <li>Never reuse session data outside the engagement</li>
+        </ul>
+
+        <div className="info-box">
+          <h4>Summary</h4>
+          <p>
+            Session testing is sensitive by nature. Authorization, minimization,
+            and confidentiality are mandatory.
+          </p>
+        </div>
+      </>
+    ),
+    quiz: {
+      question:
+        "What is required before testing session-related issues?",
+      options: [
+        "Nothing special — sessions can be tested freely",
+        "Written authorization, clear scope, careful handling of session data, and no testing outside approval",
+        "Only verbal permission is enough",
+        "Session data can be shared publicly",
+      ],
+      correct:
+        "Written authorization, clear scope, careful handling of session data, and no testing outside approval",
+    },
+  },
+
+  // ====================== 12 ======================
+  {
+    id: "best-practices",
+    title: "12 Best Practices & Mindset",
+    content: (
+      <>
+        <h2>Best Practices & Mindset</h2>
+        <p>
+          Session security is a design discipline. Strong outcomes come from
+          consistent application of known good practices.
+        </p>
+
+        <h3>Recommended Practices</h3>
+        <ul>
+          <li>Assume session tokens will be targeted</li>
+          <li>Encrypt authenticated traffic by default</li>
+          <li>Regenerate sessions at authentication boundaries</li>
+          <li>Expire and invalidate sessions deliberately</li>
+          <li>Log and monitor high-risk session events</li>
+          <li>Include session management in security reviews and testing</li>
+        </ul>
+
+        <h3>Professional Mindset</h3>
+        <ul>
+          <li>Defense-first recommendations</li>
+          <li>Clarity about impact and likelihood</li>
+          <li>Respect for user privacy and data sensitivity</li>
+          <li>Focus on durable design improvements</li>
+        </ul>
+
+        <div className="info-box">
+          <h4>Summary</h4>
+          <p>
+            Session hijacking risk is best reduced through strong identifiers,
+            encrypted transport, disciplined lifecycle management, and continuous
+            monitoring. Design quality is the primary defense.
+          </p>
+        </div>
+      </>
+    ),
+    quiz: {
+      question:
+        "Which mindset best matches professional session security practice?",
+      options: [
+        "Ignore session tokens because passwords are enough",
+        "Assume tokens will be targeted, encrypt traffic, regenerate sessions, expire deliberately, monitor events, and focus on durable design",
+        "Never monitor session activity",
+        "Keep sessions alive forever for convenience",
+      ],
+      correct:
+        "Assume tokens will be targeted, encrypt traffic, regenerate sessions, expire deliberately, monitor events, and focus on durable design",
+    },
+  },
+];
+
+/* =========================================================
+   COMPONENT
+========================================================= */
+
+const SessionHijacking = () => {
+  const [activeChapter, setActiveChapter] = useState(chapters[0]);
+  const [selectedOption, setSelectedOption] = useState("");
+  const [quizError, setQuizError] = useState("");
+  const [showCongrats, setShowCongrats] = useState(false);
+  const [completedChapters, setCompletedChapters] = useState(() => {
+    try {
+      const saved = localStorage.getItem(STORAGE_KEY);
+      return saved ? JSON.parse(saved) : [];
+    } catch {
+      return [];
+    }
+  });
+
+  useEffect(() => {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(completedChapters));
+  }, [completedChapters]);
+
+  const completedCount = completedChapters.length;
+  const totalChapters = chapters.length;
+  const progress = Math.round((completedCount / totalChapters) * 100);
+
+  const handleChapterSelect = (chapter) => {
+    setActiveChapter(chapter);
+    setSelectedOption("");
+    setQuizError("");
+  };
+
+  const handleSubmit = () => {
+    if (!activeChapter.quiz) return;
+    if (!selectedOption) {
+      setQuizError("Please select an option first.");
+      return;
+    }
+    if (selectedOption === activeChapter.quiz.correct) {
+      setQuizError("");
+      setShowCongrats(true);
+      if (!completedChapters.includes(activeChapter.id)) {
+        setCompletedChapters([...completedChapters, activeChapter.id]);
+      }
+    } else {
+      setQuizError("Wrong answer. Re-read the section and try again.");
+    }
+  };
+
+  const closeCongrats = () => {
+    setShowCongrats(false);
+    setSelectedOption("");
+    setQuizError("");
+  };
+
+  const goNextChapter = () => {
+    const idx = chapters.findIndex((c) => c.id === activeChapter.id);
+    closeCongrats();
+    if (idx >= 0 && idx < chapters.length - 1) {
+      handleChapterSelect(chapters[idx + 1]);
+    }
+  };
+
+  const isLastChapter =
+    chapters[chapters.length - 1]?.id === activeChapter.id;
+
+  return (
+    <div className="article-page">
+      <Navbar />
+
+      <section className="article-header">
+        <div className="article-header-content">
+          <Link to="/ethical-hacking" className="back-link">
+            ← Back to Ethical Hacking Courses
+          </Link>
+          <h1>
+            The ultimate guide to{" "}
+            <span className="gradient-text">Session Hijacking</span>
+          </h1>
+          <p className="article-date">Updated • 2026</p>
+          <p className="article-date" style={{ marginTop: 8 }}>
+            Progress: {completedCount}/{totalChapters} chapters · {progress}%
+          </p>
+        </div>
+      </section>
+
+      <section className="article-banner">
+        <img
+          src="/images/courses/eh-session-hijacking.png"
+          alt="Session Hijacking"
+          onError={(e) => {
+            e.target.src =
+              "https://via.placeholder.com/1200x420/1a0b2e/a855f7?text=Session+Hijacking";
+          }}
+        />
+      </section>
+
+      <section className="article-body">
+        <div className="article-container">
+          <aside className="article-sidebar">
+            <h3>Course Content</h3>
+            <ul>
+              {chapters.map((chapter) => (
+                <li
+                  key={chapter.id}
+                  className={`${
+                    activeChapter.id === chapter.id ? "active" : ""
+                  } ${
+                    completedChapters.includes(chapter.id) ? "completed" : ""
+                  }`}
+                  onClick={() => handleChapterSelect(chapter)}
+                >
+                  {chapter.title}
+                  {completedChapters.includes(chapter.id) && (
+                    <span className="check-mark">✓</span>
+                  )}
+                </li>
+              ))}
+            </ul>
+          </aside>
+
+          <div className="article-content">
+            {activeChapter.content}
+
+            {activeChapter.quiz && (
+              <div className="quiz-box">
+                <h3>Quick Check</h3>
+                <p className="quiz-question">{activeChapter.quiz.question}</p>
+                <div className="quiz-options">
+                  {activeChapter.quiz.options.map((opt, i) => (
+                    <label key={i} className="quiz-option">
+                      <input
+                        type="radio"
+                        name="quiz"
+                        value={opt}
+                        checked={selectedOption === opt}
+                        onChange={(e) => {
+                          setSelectedOption(e.target.value);
+                          setQuizError("");
+                        }}
+                      />
+                      <span>{opt}</span>
+                    </label>
+                  ))}
+                </div>
+                {quizError && (
+                  <p
+                    className="quiz-error"
+                    style={{ color: "#f9a8d4", marginTop: 12, fontSize: 14 }}
+                  >
+                    {quizError}
+                  </p>
+                )}
+                <button className="quiz-submit" onClick={handleSubmit}>
+                  Submit Answer
+                </button>
+              </div>
+            )}
+          </div>
+        </div>
+      </section>
+
+      {showCongrats && (
+        <div className="congrats-overlay">
+          <div className="congrats-modal">
+            <div className="congrats-icon">🎉</div>
+            <h2>Congratulations!</h2>
+            <p>
+              You completed <strong>{activeChapter.title}</strong> successfully.
+            </p>
+            <p style={{ opacity: 0.85, fontSize: 14 }}>
+              Progress: {completedCount}/{totalChapters}
+            </p>
+            <div
+              style={{
+                display: "flex",
+                gap: 10,
+                justifyContent: "center",
+                flexWrap: "wrap",
+                marginTop: 16,
+              }}
+            >
+              <button onClick={closeCongrats}>Continue Reading</button>
+              {!isLastChapter && (
+                <button onClick={goNextChapter}>Next Chapter →</button>
+              )}
+              {isLastChapter && completedCount >= totalChapters && (
+                <button onClick={closeCongrats}>Course Complete ✓</button>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default SessionHijacking;

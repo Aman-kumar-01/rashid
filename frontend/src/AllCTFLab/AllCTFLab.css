@@ -1,0 +1,511 @@
+/* ===================== BASE ===================== */
+.ctflab-page {
+  min-height: 100vh;
+  background: #07040f;
+  color: #e9d5ff;
+}
+
+/* ===================== HERO ===================== */
+.bb-hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4rem 3rem 3.5rem;
+  max-width: 1300px;
+  margin: 0 auto;
+  gap: 3rem;
+  flex-wrap: wrap;
+}
+
+.bb-hero-left {
+  flex: 1;
+  min-width: 300px;
+}
+
+.bb-badge {
+  display: inline-block;
+  padding: 0.4rem 1.2rem;
+  background: rgba(168, 85, 247, 0.15);
+  border: 1px solid rgba(168, 85, 247, 0.4);
+  border-radius: 50px;
+  font-size: 0.78rem;
+  letter-spacing: 1.5px;
+  color: #c084fc;
+  margin-bottom: 1.3rem;
+}
+
+.bb-title {
+  font-size: 3.3rem;
+  font-weight: 800;
+  margin: 0 0 0.9rem;
+  color: #f3e8ff;
+  line-height: 1.15;
+}
+
+.gradient-text {
+  background: linear-gradient(90deg, #c084fc, #a855f7, #7c3aed);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.bb-subtitle {
+  font-size: 1.1rem;
+  color: #c084fc;
+  margin: 0 0 1.1rem;
+  font-weight: 500;
+}
+
+.bb-desc {
+  font-size: 1.02rem;
+  color: #a78bfa;
+  line-height: 1.65;
+  max-width: 480px;
+}
+
+/* ===== PROGRESS CARD ===== */
+.bb-hero-right {
+  display: flex;
+  justify-content: center;
+}
+
+.progress-card {
+  background: linear-gradient(145deg, rgba(25, 12, 45, 0.95), rgba(15, 8, 30, 0.98));
+  border: 1px solid rgba(168, 85, 247, 0.35);
+  border-radius: 22px;
+  padding: 1.7rem 1.8rem;
+  width: 310px;
+  box-shadow: 0 0 50px rgba(124, 58, 237, 0.22);
+}
+
+.progress-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.4rem;
+}
+
+.progress-header h3 {
+  margin: 0;
+  font-size: 1.15rem;
+  color: #f3e8ff;
+}
+
+.progress-tag {
+  font-size: 0.7rem;
+  background: white;
+  color: #d11bde;
+  padding: 0.2rem 0.6rem;
+  border-radius: 50px;
+  border: 1px solid white;
+  font-weight: bold;
+  
+}
+
+.circle-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 0.8rem;
+}
+
+.circle-progress {
+  position: relative;
+  width: 135px;
+  height: 135px;
+}
+
+.circle-progress svg {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+
+.circle-bg {
+  fill: none;
+  stroke: rgba(168, 85, 247, 0.15);
+  stroke-width: 9;
+}
+
+.circle-fill {
+  fill: none;
+  stroke: url(#gradient); /* fallback */
+  stroke: #a855f7;
+  stroke-width: 9;
+  stroke-linecap: round;
+  transition: stroke-dasharray 0.7s ease;
+}
+
+.circle-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.circle-text .percent {
+  display: block;
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #f3e8ff;
+}
+
+.circle-text .label {
+  font-size: 0.72rem;
+  color: #c084fc;
+  letter-spacing: 0.5px;
+}
+
+.solved-count {
+  text-align: center;
+  color: #a78bfa;
+  font-size: 0.9rem;
+  margin: 0 0 1.4rem;
+}
+
+.solved-count strong {
+  color: #e9d5ff;
+}
+
+.category-progress-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.cat-info {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.78rem;
+  margin-bottom: 0.25rem;
+}
+
+.cat-name {
+  color: #c084fc;
+}
+
+.cat-count {
+  color: #a78bfa;
+}
+
+.progress-bar {
+  height: 6px;
+  background: rgba(168, 85, 247, 0.12);
+  border-radius: 50px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #7c3aed, #a855f7);
+  border-radius: 50px;
+  transition: width 0.5s ease;
+}
+
+/* ===================== TABS ===================== */
+.top-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  padding: 1.2rem 1rem 0.4rem;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.tab-btn {
+  background: transparent;
+  border: none;
+  color: #a78bfa;
+  font-size: 1.05rem;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0.45rem 1.1rem;
+  border-bottom: 3px solid transparent;
+  transition: all 0.25s ease;
+}
+
+.tab-btn.active {
+  color: #f3e8ff;
+  border-bottom-color: #a855f7;
+}
+
+.tab-btn:hover {
+  color: #e9d5ff;
+}
+
+/* ===================== CONTROLS ===================== */
+.controls-section {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 1.4rem 2rem 1rem;
+}
+
+.search-box {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.4rem;
+}
+
+.search-box input {
+  width: 100%;
+  max-width: 500px;
+  padding: 0.85rem 1.4rem;
+  background: rgba(18, 10, 35, 0.9);
+  border: 1px solid rgba(168, 85, 247, 0.35);
+  border-radius: 50px;
+  color: #e9d5ff;
+  font-size: 0.98rem;
+  outline: none;
+  transition: all 0.25s;
+}
+
+.search-box input:focus {
+  border-color: #a855f7;
+  box-shadow: 0 0 0 3px rgba(168, 85, 247, 0.18);
+}
+
+.search-box input::placeholder {
+  color: #7c6a9e;
+}
+
+.filter-row {
+  display: flex;
+  justify-content: center;      /* ← added */
+  align-items: center;
+  gap: 1.1rem;
+  flex-wrap: wrap;
+}
+
+.category-pills {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;      /* ← added */
+  gap: 0.65rem;
+}
+
+.filter-label {
+  font-size: 0.88rem;
+  color: #c084fc;
+  font-weight: 600;
+}
+
+
+
+.pill {
+  background: rgba(18, 10, 35, 0.8);
+  border: 1px solid rgba(168, 85, 247, 0.3);
+  color: #c084fc;
+  padding: 0.4rem 1rem;
+  border-radius: 50px;
+  font-size: 0.84rem;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.pill:hover {
+  border-color: #a855f7;
+  color: #e9d5ff;
+}
+
+.pill.active {
+  background: rgba(124, 58, 237, 0.35);
+  border-color: #a855f7;
+  color: #f3e8ff;
+}
+
+/* ===================== LABS SECTION ===================== */
+.bb-section {
+  padding: 1.3rem 2rem 5rem;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.category-section {
+  margin-bottom: 3.2rem;
+}
+
+.category-title {
+  font-size: 2.4rem;
+  color: #f3e8ff;
+  margin: 0 0 1.3rem;
+  padding-bottom: 0.55rem;
+  border-bottom: 1px solid rgba(168, 85, 247, 0.22);
+  text-align: center;
+}
+
+.courses-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+  gap: 1.5rem;
+}
+
+.course-card {
+  background: rgba(18, 10, 35, 0.85);
+  border: 1px solid rgba(168, 85, 247, 0.2);
+  border-radius: 16px;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.course-card:hover {
+  transform: translateY(-7px);
+  border-color: rgba(168, 85, 247, 0.5);
+  box-shadow: 0 14px 32px rgba(124, 58, 237, 0.28);
+}
+
+.course-image {
+  position: relative;
+  height: 175px;
+  overflow: hidden;
+}
+
+.course-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.course-card:hover .course-image img {
+  transform: scale(1.05);
+}
+
+.course-level {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: rgba(124, 58, 237, 0.9);
+  color: white;
+  font-size: 0.7rem;
+  padding: 0.28rem 0.65rem;
+  border-radius: 50px;
+  font-weight: 500;
+}
+
+.solved-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: white;
+  color: rgb(215, 17, 225);
+  font-size: 0.68rem;
+  padding: 0.25rem 0.55rem;
+  border-radius: 50px;
+  font-weight: 600;
+}
+
+.course-content {
+  padding: 1.25rem 1.35rem 1.4rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.course-content h3 {
+  margin: 0 0 0.55rem;
+  font-size: 1.08rem;
+  color: #6c10cf;
+}
+
+.course-content p {
+  margin: 0 0 1rem;
+  font-size: 0.87rem;
+  color: #a78bfa;
+  line-height: 1.5;
+  flex: 1;
+}
+
+.read-more {
+  color: #c084fc;
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
+.course-card:hover .read-more {
+  color: #e9d5ff;
+}
+
+.empty-state,
+.dashboard-placeholder {
+  text-align: center;
+  padding: 4rem 1rem;
+  color: #a78bfa;
+}
+
+.dashboard-placeholder h2 {
+  color: #f3e8ff;
+  margin-bottom: 0.7rem;
+}
+
+/* ===================== RESPONSIVE ===================== */
+@media (max-width: 900px) {
+  .bb-hero {
+    flex-direction: column;
+    text-align: center;
+    padding: 3rem 1.5rem;
+  }
+
+  .bb-desc {
+    margin: 0 auto;
+  }
+
+  .bb-title {
+    font-size: 2.5rem;
+  }
+
+  .progress-card {
+    width: 100%;
+    max-width: 340px;
+  }
+
+  .filter-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .courses-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* ===== Category Header (AI Red Teaming style) ===== */
+.section-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.9rem;
+  margin-bottom: 2rem;
+}
+
+.section-logo {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 0 15px rgba(168, 85, 247, 0.5);
+}
+
+.category-title {
+  font-size: 2.5rem;
+  margin: 0;
+  color: #f3e8ff;
+  position: relative;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+/* Purple underline (same as AI Red Teaming) */
+.category-title::after {
+  content: "";
+  display: block;
+  width: 70px;
+  height: 3px;
+  background: linear-gradient(90deg, #7c3aed, #a855f7);
+  margin: 0.7rem auto 0;
+  border-radius: 50px;
+}
